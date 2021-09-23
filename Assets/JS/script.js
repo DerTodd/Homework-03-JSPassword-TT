@@ -1,9 +1,10 @@
 // Assignment Code
 //Comma replace https://reactgo.com/javascript-remove-commas-string/
 // remove spaces https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript#5963202
+//return multiple variables https://stackoverflow.com/questions/19738207/return-two-variables-in-one-function
 var generateBtn = document.querySelector("#generate");
 //Password arrays and variables
-var pwdLength;
+var pwdLength = " ";
 var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numeric = ["1","2", "3", "4", "5", "6", "7", "8", "9", "0"];
@@ -12,6 +13,7 @@ var selectedcriteria;
 var passW = " ";
 var newpass = " ";
 var newlist = " ";
+var choices = " ";
 
 
 //selectedcriteria = symbols[Math.floor(Math.random() * symbols.length)];
@@ -39,9 +41,13 @@ function genpass () {
       console.log(alphaU);
       newlist = newlist.concat(alphaUpper);
       console.log(newlist);
+      var choice = "Upper Case Letters    ";
+      console.log(choice);
+      choices = choices.concat(choice);
+      console.log(choices);
   }else {
         newlist = newlist;
-    }return newlist;
+    }return (newlist, choices);
   };   
 function genpass2 (){
   var alphaL = confirm("Would you like to include lower case letters?");
@@ -50,6 +56,10 @@ function genpass2 (){
     console.log(alphaL);
     newlist = newlist.concat(alphaLower);
     console.log(newlist);
+    var choice = "Lower Case Letters    ";
+    console.log(choice);
+    choices = choices.concat(choice);
+    console.log(choices);
 }else {
       newlist = newlist;
   }return newlist;
@@ -61,6 +71,10 @@ function genpass3 (){
     console.log(numch);
     newlist = newlist.concat(numeric);
     console.log(newlist);
+    var choice = "Numbers    ";
+    console.log(choice);
+    choices = choices.concat(choice);
+    console.log(choices);
 }else {
       newlist = newlist;
   }return newlist;
@@ -72,6 +86,10 @@ function genpass4 (){
     console.log(symch);
     newlist = newlist.concat(symbols);
     console.log(newlist);
+    var choice = "Symbols    ";
+    console.log(choice);
+    choices = choices.concat(choice);
+    console.log(choices);
 }else {
       newlist = newlist;
   }return newlist;
@@ -96,6 +114,10 @@ function funny() {
     console.log(newpass);
   };
   return newpass;
+};
+function whatYouWant() {
+  console.log(choices);
+  alert("You select the following: " + choices);
 };
 
 //Function designed to return a random string based on iteriations.
@@ -123,7 +145,8 @@ function generatePassword () {
   genpass4();
   howlong();
   funny();
-  password = newpass
+  whatYouWant ();
+  password = newpass;
   console.log(password);
   return password;
 };
@@ -132,7 +155,7 @@ console.log(passW);
 console.log(newpass);
 console.log(newlist);
 console.log(pwdLength);
-
+console.log(choices);
 // Write password to the #password input
 function writePassword() {
   password = generatePassword();
