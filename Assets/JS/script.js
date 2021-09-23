@@ -1,4 +1,6 @@
 // Assignment Code
+//Comma replace https://reactgo.com/javascript-remove-commas-string/
+// remove spaces https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript#5963202
 var generateBtn = document.querySelector("#generate");
 //Password arrays and variables
 var pwdLength;
@@ -83,8 +85,13 @@ function howlong (){
 }; 
 function funny() {
   for (var i=0; i < pwdLength; i++) {
-
-    selectedcriteria = symbols[Math.floor(Math.random() * symbols.length)];
+    var newListString = newlist.toString();
+    var noComma = newListString.replace(/,/g, "")
+    var noSpace = noComma.replace(/\s/g,"");
+    var pen = noSpace.length;
+    console.log(pen);
+    console.log(noSpace);
+    selectedcriteria = noSpace[Math.floor(Math.random() * pen)];
     newpass = newpass.concat(selectedcriteria);
     console.log(newpass);
   };
@@ -101,12 +108,25 @@ function fun() {
   };
   return newpass;
 };
-genpass()
-genpass2()
-genpass3()
-genpass4()
-howlong()
 
+//genpass()
+//genpass2()
+//genpass3()
+//genpass4()
+//howlong()
+//funny()
+
+function generatePassword () {
+  genpass();
+  genpass2();
+  genpass3();
+  genpass4();
+  howlong();
+  funny();
+  password = newpass
+  console.log(password);
+  return password;
+};
 //fun();
 console.log(passW);
 console.log(newpass);
@@ -115,18 +135,18 @@ console.log(pwdLength);
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
+//writePassword()
+//var generatePassword = function(){
+  //selectedcriteria[Math.floor(Math.random() * options.length)];
 
-var generatePassword = function(){
-  selectedcriteria[Math.floor(Math.random() * options.length)];
-
-  return pwd;
-}
+  //return pwd;
+//}
 
 
 // Add event listener to generate button
