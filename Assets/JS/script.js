@@ -71,7 +71,8 @@ function genpass2 (){
   //if the user doesn't want lower, nothing is added to the lists.
       newlist = newlist;
   }return newlist;
-};   
+};  
+//Third function asked if a number is wanted.  If it is, numberic list is concated to newlist and Numbers is added to the choice list.   
 function genpass3 (){
   var numch = confirm("Would you like to include numbers?");
   console.log (numch);
@@ -84,9 +85,11 @@ function genpass3 (){
     choices = choices.concat(choice);
     console.log(choices);
 }else {
+    //If the user doesn't want numbers, the list is returned unchanged.
       newlist = newlist;
   }return newlist;
 };   
+//Forth function asked if a symbol is wanted.  If it is, symbols list is concated to newlist and symbols is added to the choice list. 
 function genpass4 (){
   var symch = confirm("Would you like to include symbols?");
   console.log (symch);
@@ -99,9 +102,11 @@ function genpass4 (){
     choices = choices.concat(choice);
     console.log(choices);
 }else {
+  //If the user doesn't want symbols, the list is returned unchanged.
       newlist = newlist;
   }return newlist;
 }; 
+//The final function asks the user how lond the password should be.
 function howlong (){
   var lench = prompt("How long would you like your password to be? Please select a number between 8 and 128 (choose 128 if you are insane)");
   console.log (lench);
@@ -109,6 +114,7 @@ function howlong (){
   console.log(pwdLength)
   return pwdLength;
 }; 
+// The most hilarious function in the script generates the password using Math.  To get it to work correctly, the list was changed to a string and commas and spaces were removed
 function funny() {
   for (var i=0; i < pwdLength; i++) {
     var newListString = newlist.toString();
@@ -117,12 +123,14 @@ function funny() {
     var pen = noSpace.length;
     console.log(pen);
     console.log(noSpace);
+    //string with all the selected criteria was randomnly generated using the Math.floor
     selectedcriteria = noSpace[Math.floor(Math.random() * pen)];
     newpass = newpass.concat(selectedcriteria);
     console.log(newpass);
   };
   return newpass;
 };
+//User alert to shoe the choices made
 function whatYouWant() {
   console.log(choices);
   alert("You select the following: " + choices);
@@ -145,7 +153,7 @@ function fun() {
 //genpass4()
 //howlong()
 //funny()
-
+//Function that runs the generator
 function generatePassword () {
   genpass();
   genpass2();
