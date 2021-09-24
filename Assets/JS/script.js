@@ -28,6 +28,9 @@ var choices = " ";
   //console.log(something);
 //}
 //Writing the Function to get user input
+//function that request the user's input if they want a password
+//if they don't it is cancelled out
+
 function genpass () {
   var beginp = confirm("Would you like a new password?")
   console.log(beginp);
@@ -37,7 +40,9 @@ function genpass () {
   }else {
     return;
   };
+  //if a user wants a password ask if they want alpha
   if (alphaU === true) {
+    //add upper alpha with concat to the newlist and add the upper choice to the choice list
       console.log(alphaU);
       newlist = newlist.concat(alphaUpper);
       console.log(newlist);
@@ -46,9 +51,11 @@ function genpass () {
       choices = choices.concat(choice);
       console.log(choices);
   }else {
+    // don't add anything to the list
         newlist = newlist;
     }return (newlist, choices);
-  };   
+  }; 
+  //Second function asked if lower alpha is wanted.  If it is, lower is concated to newlist and lower is added to the choice list.  
 function genpass2 (){
   var alphaL = confirm("Would you like to include lower case letters?");
   console.log (alphaL);
@@ -61,6 +68,7 @@ function genpass2 (){
     choices = choices.concat(choice);
     console.log(choices);
 }else {
+  //if the user doesn't want lower, nothing is added to the lists.
       newlist = newlist;
   }return newlist;
 };   
